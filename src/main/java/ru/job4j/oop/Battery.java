@@ -13,7 +13,7 @@ public class Battery {
 
     public void exchange(Battery another) {
         another.load += load;
-        this.load -= load;
+        this.load = 0;
     }
 
     public static void main(String[] args) {
