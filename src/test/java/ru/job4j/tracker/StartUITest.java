@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class StartUITest {
-    private static final Output output = new ConsoleOutput();
+    private static final Output OUTPUT = new ConsoleOutput();
 
     @Test
     void whenCreateItem() {
@@ -14,10 +14,10 @@ class StartUITest {
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new CreateAction(output),
-                new ExitAction(output)
+                new CreateAction(OUTPUT),
+                new ExitAction(OUTPUT)
         };
-        new StartUI(output).init(input, tracker, actions);
+        new StartUI(OUTPUT).init(input, tracker, actions);
         assertThat(tracker.findAll()[0].getName()).isEqualTo("Item name");
     }
 
@@ -30,10 +30,10 @@ class StartUITest {
                 new String[]{"0", String.valueOf(item.getId()), replacedName, "1"}
         );
         UserAction[] actions = {
-                new ReplaceAction(output),
-                new ExitAction(output)
+                new ReplaceAction(OUTPUT),
+                new ExitAction(OUTPUT)
         };
-        new StartUI(output).init(input, tracker, actions);
+        new StartUI(OUTPUT).init(input, tracker, actions);
         assertThat(tracker.findById(item.getId()).getName()).isEqualTo(replacedName);
     }
 
@@ -45,10 +45,10 @@ class StartUITest {
                 new String[]{"0", String.valueOf(item.getId()), "1"}
         );
         UserAction[] actions = {
-                new DeleteAction(output),
-                new ExitAction(output)
+                new DeleteAction(OUTPUT),
+                new ExitAction(OUTPUT)
         };
-        new StartUI(output).init(input, tracker, actions);
+        new StartUI(OUTPUT).init(input, tracker, actions);
         assertThat(tracker.findById(item.getId())).isNull();
     }
 }
