@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class FactorialTest {
 
     @Test
-    void whenInputNumberIsInvalid_ThrowsIllegalArgumentException() {
+    void whenInputNumberIsInvalidThrowsIllegalArgumentException() {
         int inputNumber = -1;
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
                 () -> new Factorial().calc(inputNumber));
