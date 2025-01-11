@@ -14,4 +14,12 @@ class FactorialTest {
                 () -> new Factorial().calc(inputNumber));
         assertThat(exception.getMessage()).isEqualTo("Number could not be less than 0");
     }
+
+    @Test
+    void whenInputNumberIsValid() {
+        int inputNumber = 3;
+        int exceptValue = 6;
+        int result = new Factorial().calc(inputNumber);
+        assertThat(result).isEqualTo(exceptValue);
+    }
 }
