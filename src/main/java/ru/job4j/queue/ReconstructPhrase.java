@@ -17,11 +17,10 @@ public class ReconstructPhrase {
         StringBuilder evenChars = new StringBuilder();
         int sizeQueue = evenElements.size();
         for (int i = 0; i < sizeQueue; i++) {
+            Character element = evenElements.poll();
             if (i % 2 == 0) {
-                evenChars.append(evenElements.poll());
-                continue;
+                evenChars.append(element);
             }
-            evenElements.poll();
         }
         return evenChars.toString();
     }
