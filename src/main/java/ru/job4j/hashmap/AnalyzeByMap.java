@@ -36,11 +36,9 @@ public class AnalyzeByMap {
 
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                totalScores.putIfAbsent(subject.name(), 0);
-                subjectCount.putIfAbsent(subject.name(), 0);
-
-                totalScores.put(subject.name(), totalScores.get(subject.name()) + subject.score());
-                subjectCount.put(subject.name(), subjectCount.get(subject.name()) + 1);
+                totalScores.put(subject.name(), totalScores.getOrDefault(subject.name(), 0)
+                        + subject.score());
+                subjectCount.put(subject.name(), subjectCount.getOrDefault(subject.name(), 0) + 1);
             }
         }
 
