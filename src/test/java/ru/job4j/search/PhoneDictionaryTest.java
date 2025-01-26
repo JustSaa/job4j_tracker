@@ -9,19 +9,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PhoneDictionaryTest {
     @Test
     public void whenFindByName() {
-        PhoneDictionary phones = new PhoneDictionary();
+        var phones = new PhoneDictionary();
         phones.add(
                 new Person("Petr", "Arsentev", "534872", "Bryansk")
         );
-        ArrayList<Person> persons = phones.find("Petr");
+        var persons = phones.find("Petr");
         assertThat(persons.get(0).getSurname()).isEqualTo("Arsentev");
     }
 
     @Test
     public void whenNotFind() {
-        PhoneDictionary phoneDictionary = new PhoneDictionary();
+        var phoneDictionary = new PhoneDictionary();
         phoneDictionary.add(new Person("Petr", "Arsentev", "534872", "Bryansk"));
-        ArrayList<Person> persons = phoneDictionary.find("Pavel");
+        var persons = phoneDictionary.find("Pavel");
         assertThat(persons).isEmpty();
     }
 }
