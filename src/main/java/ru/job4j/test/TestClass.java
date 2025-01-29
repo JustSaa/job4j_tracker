@@ -8,4 +8,8 @@ public class TestClass {
     public String testMethodForString() {
         return "Test";
     }
+
+    public static void main(String[] args) {
+
+    }
 }
